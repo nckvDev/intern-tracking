@@ -5,7 +5,7 @@ const Other = () => {
   const navigate = useNavigate()
 
   const logout = () => {
-    localStorage.removeItem('user')
+    sessionStorage.removeItem('user')
     navigate('/login')
   }
 
