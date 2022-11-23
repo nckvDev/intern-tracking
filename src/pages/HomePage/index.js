@@ -10,7 +10,6 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons'
 import { Headers, Siders, Layouts, Logo, Menus, Contents } from './homepage.style'
-const { Header, Sider, Content } = Layouts
 
 export const HomePage = () => {
   const [collapsed, setCollapsed] = useState(false)
@@ -20,12 +19,22 @@ export const HomePage = () => {
     navigate('/login')
   }
 
-  return (
-    // <div>
-    //   HomePage
-    //   <button onClick={logout}> Logout</button>
-    // </div>
+  const handleClick = e => {
+    const { key } = e
+    console.log('e', key)
+    switch (key) {
+      case key === 3:
+        console.warn('logouterr')
+        sessionStorage.removeItem('user')
+        navigate('/login')
+        break
 
+      default:
+        break
+    }
+  }
+
+  return (
     <Layouts>
       <Siders trigger={null} collapsible collapsed={collapsed}>
         <Logo collapsed={collapsed}>
@@ -34,6 +43,7 @@ export const HomePage = () => {
         <Menus
           mode='inline'
           defaultSelectedKeys={['1']}
+          onClick={handleClick}
           items={[
             {
               key: '1',
