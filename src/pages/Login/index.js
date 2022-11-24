@@ -6,7 +6,7 @@ export const Login = () => {
   const navigate = useNavigate()
 
   const login = () => {
-    sessionStorage.setItem('user', 'test')
+    sessionStorage.setItem('user', 'admin')
     navigate('/homepage')
   }
 
