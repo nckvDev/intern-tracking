@@ -1,13 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom'
 
-const useAuth = () => {
-  const user = sessionStorage.getItem('user')
-  return user ? true : false
-}
-
 export const PrivateRoute = () => {
-  const auth = useAuth()
-  console.log(auth)
+  const auth = sessionStorage.getItem('user')
 
-  return auth || sessionStorage.user ? <Outlet /> : <Navigate to='/login' />
+  return auth ? <Outlet /> : <Navigate to='/login' />
 }
